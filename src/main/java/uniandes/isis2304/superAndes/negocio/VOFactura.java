@@ -32,7 +32,7 @@ public interface VOFactura
 	/**
 	 * @return pago exitoso. 1 si exito, 0 de lo contrario.
 	 */
-	public int isPagoExitoso();
+	public boolean isPagoExitoso();
 	
 	/**
 	 * @return asigna los puntos de la cabesra.

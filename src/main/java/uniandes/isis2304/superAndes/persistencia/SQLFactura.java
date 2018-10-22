@@ -42,8 +42,20 @@ class SQLFactura {
 		this.psa = psa;
 	}
 	
+	/**
+	 * Adiciona una nueva factura a la tabla "Facturas" con la informacion
+	 * pasada por parametro
+	 * @param numero - El Numero de factura , identificador unico
+	 * @param direccion - La direccion de la factura
+	 * @param facha - fecha de generacion de la factura
+	 * @param nombreCajero - Nombre del cajero q expide la factura
+	 * @param valorTotal - Valor total  de la factura 
+	 * @param pagoExitoso - boolen que dice si se pudo realizar o no el pago
+	 * @param puntosCompra - numero de puntos asignados por la compra
+	 * @param cliente - El Manejador de persistencia de la aplicación
+	 */
 	public long adicionarFactura(PersistenceManager pm, long numero, String direccion, 
-			Date fecha, String nombreCajero, double valorTotal, int pagoExitoso, 
+			Date fecha, String nombreCajero, double valorTotal, boolean pagoExitoso, 
 			int puntosCompra, String cliente)
 	{
 		Query q = pm.newQuery(SQL, "INSERT INTO " + psa.darTablaFactura() + " (numero, direccion, fecha, nombrecajero, valortotal, pagoexitoso, puntoscompra, cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
